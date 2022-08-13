@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+html, body {
+  --NavHeight: 45px;
+  --NavColor: orange;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.TopNav {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  height: var(--NavHeight);
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  justify-content: space-between;
+  background-color: var(--NavColor);
+  font-family: "Roboto", sans-serif;
+}
+.TopNav h1 {
+  margin: 0;
+  color: white;
+}
+.TopNav i {
+  font-size: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.title {
+  padding: 0 8px;
+  margin: 0;
+}
+
+#search {
+  background-color: orange;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  width: calc(100% - 16px);
+  height: 32px;
+  margin: 8px;
+}
+
+#search::-moz-placeholder {
+  color: white;
+}
+
+#search:-ms-input-placeholder {
+  color: white;
+}
+
+#search::placeholder {
+  color: white;
+}
+
+.Display {
+  margin-top: var(--NavHeight);
+}
+
+#CartActual {
+  margin: 0px 8px;
+  font-family: "Roboto", sans-serif;
+  list-style: none;
+  padding: 0;
+  background-color: aqua;
+  max-height: calc(100vh - 160px);
+  overflow: hidden;
+  overflow-y: scroll;
+}
+#CartActual li {
+  cursor: pointer;
+  background-color: orange;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  padding: 8px 8px 8px 0;
+  position: relative;
+  height: 20px;
+}
+#CartActual li .RightBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#CartActual li .RightBox .checker {
+  background-color: rgb(255, 0, 0);
+  height: 20px;
+  aspect-ratio: 1;
+}
+#CartActual li .RightBox .check {
+  background-color: green !important;
+}
+#CartActual li .RightBox h5 {
+  margin: 0;
+}
+#CartActual li .CloseBtn {
+  height: 36px;
+  aspect-ratio: 1;
+  background-color: rgb(187, 11, 11);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#CartActual li .CloseBtn::after {
+  content: "X";
+  font-weight: bolder;
+  color: white;
+}
+
+#AddingBox {
+  position: absolute;
+  bottom: 16px;
+  width: calc(100% - 32px);
+  height: 40px;
+  margin: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+#AddingBox #AddNew {
+  height: 100%;
+  aspect-ratio: 1;
+  background-color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 35px;
+  line-height: 0px;
+  font-weight: bold;
+  border-radius: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  transition: 100ms;
+}
+#AddingBox .inputs {
+  display: flex;
+  gap: 8px;
+}
+#AddingBox .inputs input {
+  font-family: "Roboto", sans-serif;
+  border-radius: 25px;
+  border: none;
+  background-color: orange;
+  box-sizing: border-box;
+  height: 100%;
+  width: 50%;
+  padding: 8px 16px;
+  color: white;
+  font-weight: bold;
+}
+#AddingBox .inputs input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+#AddingBox .inputs input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+#AddingBox .inputs input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}/*# sourceMappingURL=style.css.map */
