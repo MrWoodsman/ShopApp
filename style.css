@@ -124,21 +124,24 @@ html, body {
 #AddingBox {
   position: absolute;
   bottom: 16px;
-  width: calc(100% - 32px);
+  padding: 8px;
+  border-radius: 25px;
+  width: calc(100% - 48px);
   height: 40px;
   margin: 0 16px;
   display: flex;
+  background-color: orange;
   justify-content: space-between;
   gap: 8px;
 }
 #AddingBox #AddNew {
   height: 100%;
   aspect-ratio: 1;
-  background-color: orange;
+  background-color: rgb(255, 255, 255);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: orange;
   font-size: 35px;
   line-height: 0px;
   font-weight: bold;
@@ -159,7 +162,7 @@ html, body {
   font-family: "Roboto", sans-serif;
   border-radius: 25px;
   border: none;
-  background-color: orange;
+  background-color: rgb(255, 255, 255);
   box-sizing: border-box;
   height: 100%;
   width: 50%;
@@ -168,11 +171,11 @@ html, body {
   font-weight: bold;
 }
 #AddingBox .inputs input::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.75);
 }
 #AddingBox .inputs input:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.75);
 }
 #AddingBox .inputs input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.75);
 }/*# sourceMappingURL=style.css.map */
