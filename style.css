@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 html, body {
   --NavHeight: 45px;
-  --NavColor: orange;
+  --MainColor: orange;
+  --ExtraColor: white;
   padding: 0;
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -19,7 +20,7 @@ html, body {
   align-items: center;
   padding: 8px 16px;
   justify-content: space-between;
-  background-color: var(--NavColor);
+  background-color: var(--MainColor);
   font-family: "Roboto", sans-serif;
 }
 .TopNav h1 {
@@ -41,7 +42,7 @@ html, body {
 }
 
 #search {
-  background-color: orange;
+  background-color: var(--MainColor);
   border-radius: 25px;
   border: none;
   color: white;
@@ -69,16 +70,20 @@ html, body {
 }
 
 #CartActual {
+  --BorderMaringCard: 8px;
+  --BorderMaringStatus: 8px;
   margin: 0px 8px;
   font-family: "Roboto", sans-serif;
   list-style: none;
   padding: 0;
-  background-color: aqua;
+  background-color: white;
   max-height: calc(100vh - 160px);
   overflow: hidden;
   overflow-y: scroll;
 }
 #CartActual li {
+  border-radius: var(--BorderMaringCard);
+  -webkit-tap-highlight-color: transparent;
   cursor: pointer;
   background-color: orange;
   border-bottom: 1px solid rgb(255, 255, 255);
@@ -99,6 +104,7 @@ html, body {
 #CartActual li .RightBox .checker {
   background-color: rgb(255, 0, 0);
   height: 20px;
+  border-radius: var(--BorderMaringStatus);
   aspect-ratio: 1;
 }
 #CartActual li .RightBox .check {
@@ -108,6 +114,7 @@ html, body {
   margin: 0;
 }
 #CartActual li .CloseBtn {
+  border-radius: var(--BorderMaringCard) 0px 0 var(--BorderMaringCard);
   height: 36px;
   aspect-ratio: 1;
   background-color: rgb(187, 11, 11);
@@ -127,21 +134,21 @@ html, body {
   padding: 8px;
   border-radius: 25px;
   width: calc(100% - 48px);
-  height: 40px;
+  height: 32.5px;
   margin: 0 16px;
   display: flex;
-  background-color: orange;
+  background-color: var(--MainColor);
   justify-content: space-between;
   gap: 8px;
 }
 #AddingBox #AddNew {
   height: 100%;
   aspect-ratio: 1;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--ExtraColor);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: orange;
+  color: var(--MainColor);
   font-size: 35px;
   line-height: 0px;
   font-weight: bold;
@@ -162,12 +169,12 @@ html, body {
   font-family: "Roboto", sans-serif;
   border-radius: 25px;
   border: none;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--ExtraColor);
   box-sizing: border-box;
   height: 100%;
   width: 50%;
   padding: 8px 16px;
-  color: white;
+  color: black;
   font-weight: bold;
 }
 #AddingBox .inputs input::-moz-placeholder {
