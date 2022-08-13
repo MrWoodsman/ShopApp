@@ -4,12 +4,14 @@ html,body {
   --NavHeight: 45px;
   --MainColor: orange;
   --ExtraColor: white;
+  --CustomHeight: calc(100vh - 45px);
   padding: 0;
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
-.TopNav {
+#TopNav {
   position: absolute;
   z-index: 10;
   top: 0;
@@ -35,6 +37,27 @@ html,body {
     user-select: none;
   }
 }
+.HomePage {
+  #GoToList {
+    display: block;
+  }
+  #GoToHomePage {
+    display: none;
+  }
+}
+.ListPage {
+  #GoToList {
+    display: none !important;
+  }
+  #GoToHomePage {
+    display: block;
+  }
+}
+.NavButton {
+  background-color: blue;
+  height: 100%;
+  aspect-ratio: 1;
+}
 
 .title {
   padding: 0 8px;
@@ -58,6 +81,72 @@ html,body {
 
 .Display {
   margin-top: var(--NavHeight);
+}
+
+#HomePage {
+  position: absolute;
+  width: 100%;
+  height: var(--CustomHeight);
+  background-color: rgb(255, 166, 0);
+  .Profile {
+    margin: 40px 0px 40px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .ProfileImg {
+      position: relative;
+      width: clamp(25px,30%,200px);
+      aspect-ratio: 1;
+      background-color: white;
+      border-radius: 50%;
+      box-shadow: white 0px 0px 8px;
+      overflow: hidden;
+      &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: url('https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(0);
+      }
+    }
+    .AcountName {
+      color: white;
+      font-size: 25px;
+      &::before {
+        content: '-- ';
+      }
+      &::after {
+        content: ' --';
+      }
+    }
+  }
+  #ProfileLists {
+    margin: 0 16px;
+    h1 {
+      font-size: 22px;
+      margin: 0;
+      color: white;
+    }
+    ul {
+      padding: 0 0 0 4px;
+      list-style: none;
+      li {
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 8px;
+        border-radius: 16px;
+        margin-bottom: 8px;
+        font-size: 16px;
+        -webkit-tap-highlight-color: transparent;
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+      }
+    }
+  }
 }
 
 #CartActual {
@@ -154,6 +243,7 @@ html,body {
     transition: 100ms;
   }
   .inputs {
+    width: 100%;
     display: flex;
     gap: 8px;
     input {
@@ -172,6 +262,20 @@ html,body {
       color: rgba(0, 0, 0, .75);
     }
   }
+}
+
+.DisplayCarts {
+  position: absolute;
+  width: 100%;
+  height: var(--CustomHeight);
+  transition: 200ms;
+  transition-duration: left,right;
+}
+.OpenToRight {
+  left: 100% !important;
+}
+.OpenToLeft {
+  right: 100% !important;
 }
 
 

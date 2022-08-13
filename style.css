@@ -3,12 +3,14 @@ html, body {
   --NavHeight: 45px;
   --MainColor: orange;
   --ExtraColor: white;
+  --CustomHeight: calc(100vh - 45px);
   padding: 0;
   margin: 0;
   font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
 }
 
-.TopNav {
+#TopNav {
   position: absolute;
   z-index: 10;
   top: 0;
@@ -23,17 +25,37 @@ html, body {
   background-color: var(--MainColor);
   font-family: "Roboto", sans-serif;
 }
-.TopNav h1 {
+#TopNav h1 {
   margin: 0;
   color: white;
 }
-.TopNav i {
+#TopNav i {
   font-size: 30px;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+.HomePage #GoToList {
+  display: block;
+}
+.HomePage #GoToHomePage {
+  display: none;
+}
+
+.ListPage #GoToList {
+  display: none !important;
+}
+.ListPage #GoToHomePage {
+  display: block;
+}
+
+.NavButton {
+  background-color: blue;
+  height: 100%;
+  aspect-ratio: 1;
 }
 
 .title {
@@ -67,6 +89,72 @@ html, body {
 
 .Display {
   margin-top: var(--NavHeight);
+}
+
+#HomePage {
+  position: absolute;
+  width: 100%;
+  height: var(--CustomHeight);
+  background-color: rgb(255, 166, 0);
+}
+#HomePage .Profile {
+  margin: 40px 0px 40px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#HomePage .Profile .ProfileImg {
+  position: relative;
+  width: clamp(25px, 30%, 200px);
+  aspect-ratio: 1;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: white 0px 0px 8px;
+  overflow: hidden;
+}
+#HomePage .Profile .ProfileImg::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url("https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0);
+}
+#HomePage .Profile .AcountName {
+  color: white;
+  font-size: 25px;
+}
+#HomePage .Profile .AcountName::before {
+  content: "-- ";
+}
+#HomePage .Profile .AcountName::after {
+  content: " --";
+}
+#HomePage #ProfileLists {
+  margin: 0 16px;
+}
+#HomePage #ProfileLists h1 {
+  font-size: 22px;
+  margin: 0;
+  color: white;
+}
+#HomePage #ProfileLists ul {
+  padding: 0 0 0 4px;
+  list-style: none;
+}
+#HomePage #ProfileLists ul li {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  border-radius: 16px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
 }
 
 #CartActual {
@@ -162,6 +250,7 @@ html, body {
   transition: 100ms;
 }
 #AddingBox .inputs {
+  width: 100%;
   display: flex;
   gap: 8px;
 }
@@ -185,4 +274,20 @@ html, body {
 }
 #AddingBox .inputs input::placeholder {
   color: rgba(0, 0, 0, 0.75);
+}
+
+.DisplayCarts {
+  position: absolute;
+  width: 100%;
+  height: var(--CustomHeight);
+  transition: 200ms;
+  transition-duration: left, right;
+}
+
+.OpenToRight {
+  left: 100% !important;
+}
+
+.OpenToLeft {
+  right: 100% !important;
 }/*# sourceMappingURL=style.css.map */
