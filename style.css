@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+#TEST {
+  width: 50px;
+  aspect-ratio: 1;
+  background-color: red;
+}
+
 html, body {
   --NavHeight: 45px;
   --MainColor: orange;
@@ -8,6 +14,7 @@ html, body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   overflow-x: hidden;
+  overflow: hidden;
 }
 
 #TopNav {
@@ -38,22 +45,17 @@ html, body {
           user-select: none;
 }
 
-.HomePage #GoToList {
+#BackToHome {
   display: block;
-}
-.HomePage #GoToHomePage {
+  color: white;
+  line-height: 0px;
   display: none;
 }
-
-.ListPage #GoToList {
-  display: none !important;
-}
-.ListPage #GoToHomePage {
-  display: block;
+#BackToHome i {
+  font-size: 30px;
 }
 
 .NavButton {
-  background-color: blue;
   height: 100%;
   aspect-ratio: 1;
 }
@@ -144,17 +146,76 @@ html, body {
 #HomePage #ProfileLists ul {
   padding: 0 0 0 4px;
   list-style: none;
+  max-height: calc(100vh - 440px);
 }
 #HomePage #ProfileLists ul li {
   background-color: rgba(0, 0, 0, 0.1);
-  padding: 8px;
+  padding: 8px 16px 8px 8px;
   border-radius: 16px;
+  display: flex;
   margin-bottom: 8px;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
   font-size: 16px;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
   font-weight: bold;
   color: white;
+}
+#HomePage #ProfileLists ul li .left {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+#HomePage #ProfileLists ul li h1 {
+  display: none;
+}
+#HomePage #ProfileLists ul li p {
+  margin: 0;
+}
+
+@-webkit-keyframes LOADING {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes LOADING {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#LISTDBID {
+  display: none;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+#JoinBox {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  gap: 8px;
+  align-items: center;
+}
+#JoinBox input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 25px;
+  padding: 0 8px;
+  box-sizing: border-box;
 }
 
 #CartActual {
@@ -170,6 +231,8 @@ html, body {
   overflow-y: scroll;
 }
 #CartActual li {
+  -webkit-animation: LOADING 250ms linear forwards;
+          animation: LOADING 250ms linear forwards;
   border-radius: var(--BorderMaringCard);
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
@@ -216,7 +279,7 @@ html, body {
   color: white;
 }
 
-#AddingBox {
+#AddingBox, #AddingListBox {
   position: absolute;
   bottom: 16px;
   padding: 8px;
@@ -229,7 +292,7 @@ html, body {
   justify-content: space-between;
   gap: 8px;
 }
-#AddingBox #AddNew {
+#AddingBox #AddNew, #AddingListBox #AddNew {
   height: 100%;
   aspect-ratio: 1;
   background-color: var(--ExtraColor);
@@ -249,12 +312,12 @@ html, body {
   cursor: pointer;
   transition: 100ms;
 }
-#AddingBox .inputs {
+#AddingBox .inputs, #AddingListBox .inputs {
   width: 100%;
   display: flex;
   gap: 8px;
 }
-#AddingBox .inputs input {
+#AddingBox .inputs input, #AddingListBox .inputs input {
   font-family: "Roboto", sans-serif;
   border-radius: 25px;
   border: none;
@@ -266,14 +329,18 @@ html, body {
   color: black;
   font-weight: bold;
 }
-#AddingBox .inputs input::-moz-placeholder {
+#AddingBox .inputs input::-moz-placeholder, #AddingListBox .inputs input::-moz-placeholder {
   color: rgba(0, 0, 0, 0.75);
 }
-#AddingBox .inputs input:-ms-input-placeholder {
+#AddingBox .inputs input:-ms-input-placeholder, #AddingListBox .inputs input:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.75);
 }
-#AddingBox .inputs input::placeholder {
+#AddingBox .inputs input::placeholder, #AddingListBox .inputs input::placeholder {
   color: rgba(0, 0, 0, 0.75);
+}
+
+#AddingListBox .inputs input {
+  width: 100%;
 }
 
 .DisplayCarts {
@@ -285,9 +352,74 @@ html, body {
 }
 
 .OpenToRight {
-  left: 100% !important;
+  -webkit-animation-name: toRight;
+          animation-name: toRight;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
+@-webkit-keyframes toRight {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes toRight {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
 .OpenToLeft {
-  right: 100% !important;
+  -webkit-animation-name: toLeft;
+          animation-name: toLeft;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes toLeft {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes toLeft {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+.ToDisplay {
+  -webkit-animation-name: toDisplay;
+          animation-name: toDisplay;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes toDisplay {
+  to {
+    left: 0%;
+  }
+}
+
+@keyframes toDisplay {
+  to {
+    left: 0%;
+  }
 }/*# sourceMappingURL=style.css.map */

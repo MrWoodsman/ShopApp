@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
+@import "home";
 html,body {
   --NavHeight: 45px;
   --MainColor: orange;
@@ -9,6 +9,7 @@ html,body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
+  overflow: hidden;
 }
 
 #TopNav {
@@ -37,24 +38,17 @@ html,body {
     user-select: none;
   }
 }
-.HomePage {
-  #GoToList {
-    display: block;
-  }
-  #GoToHomePage {
-    display: none;
-  }
-}
-.ListPage {
-  #GoToList {
-    display: none !important;
-  }
-  #GoToHomePage {
-    display: block;
+
+#BackToHome {
+  display: block;
+  color: white;
+  line-height: 0px;
+  display: none;
+  i {
+    font-size: 30px;
   }
 }
 .NavButton {
-  background-color: blue;
   height: 100%;
   aspect-ratio: 1;
 }
@@ -134,21 +128,69 @@ html,body {
     ul {
       padding: 0 0 0 4px;
       list-style: none;
+      max-height: calc(100vh - 440px);
       li {
         background-color: rgba(0, 0, 0, 0.1);
-        padding: 8px;
+        padding: 8px 16px 8px 8px;
         border-radius: 16px;
+        display: flex;
         margin-bottom: 8px;
+        display: flex;
+        gap: 8px;
+        justify-content: space-between;
+        align-items: center;
         font-size: 16px;
         -webkit-tap-highlight-color: transparent;
         cursor: pointer;
         font-weight: bold;
         color: white;
+        .left {
+          display: flex;
+          gap: 8px;
+          width: 100%;
+        }
+        h1 {
+          display: none;
+        }
+        p {
+          margin: 0;
+        }
       }
     }
   }
 }
 
+@keyframes LOADING {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#LISTDBID {
+  display: none;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+#JoinBox {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  gap: 8px;
+  align-items: center;
+  input {
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    padding: 0 8px;
+    box-sizing: border-box;
+  }
+}
 #CartActual {
   --BorderMaringCard: 8px;
   --BorderMaringStatus: 8px;
@@ -161,6 +203,7 @@ html,body {
   overflow: hidden;
   overflow-y: scroll;
   li {
+    animation: LOADING 250ms linear forwards;
     border-radius: var(--BorderMaringCard);
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
@@ -208,7 +251,7 @@ html,body {
 
   }
 }
-#AddingBox {
+#AddingBox, #AddingListBox {
   position: absolute;
   bottom: 16px;
   padding: 8px;
@@ -264,6 +307,14 @@ html,body {
   }
 }
 
+#AddingListBox {
+  .inputs {
+    input {
+      width: 100%;
+    }
+  }
+}
+
 .DisplayCarts {
   position: absolute;
   width: 100%;
@@ -272,13 +323,43 @@ html,body {
   transition-duration: left,right;
 }
 .OpenToRight {
-  left: 100% !important;
+  // left: 100% !important;
+  animation-name: toRight;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes toRight {
+  from {
+    left: 0%;
+  } 
+  to {
+    left: 100%;
+  }
 }
 .OpenToLeft {
-  right: 100% !important;
+  // right: 100% !important;
+  animation-name: toLeft;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
 }
-
-
+@keyframes toLeft {
+  from {
+    left: 0%;
+  } 
+  to {
+    left: -100%;
+  }
+}
+.ToDisplay {
+  animation-name: toDisplay;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes toDisplay {
+  to {
+    left: 0%;
+  }
+}
 // .open {
 //   right: 16px !important;
 //   transform: translateX(0%) !important;
