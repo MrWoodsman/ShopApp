@@ -292,7 +292,7 @@ html, body {
   justify-content: space-between;
   gap: 8px;
 }
-#AddingBox #AddNew, #AddingListBox #AddNew {
+#AddingBox #AddNew, #AddingBox #AddNewList, #AddingListBox #AddNew, #AddingListBox #AddNewList {
   height: 100%;
   aspect-ratio: 1;
   background-color: var(--ExtraColor);

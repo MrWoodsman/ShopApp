@@ -263,7 +263,7 @@ html,body {
   background-color: var(--MainColor);
   justify-content: space-between;
   gap: 8px;
-  #AddNew {
+  #AddNew, #AddNewList {
     height: 100%;
     aspect-ratio: 1;
     background-color: var(--ExtraColor);
